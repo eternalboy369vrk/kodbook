@@ -1,0 +1,345 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+body {
+  background-image: linear-gradient(135deg, #FAB2FF 10%, #1904E5 100%);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  font-family: "Open Sans", sans-serif;
+  color: #333333;
+  padding: 10px;
+}
+
+/* Navigation Bar */
+
+.nav-bar {
+  background: black;
+  padding: 9px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 8px solid  #FFFFFF;
+  border-radius: 12px;
+}
+.nav-bar .p{
+	color:white;
+}
+.nav-link {
+  color: #ffffff;
+  text-decoration: none;
+  margin-right: 20px;
+}
+
+.nav-link:hover {
+  color: rgb(61, 236, 61);
+}
+
+/*for users profile*/
+
+.nav-user-img .p{
+	color:white;
+	margin-top:10px;
+}
+/*
+.nav-user-img .p::before
+{
+	content:"Welcome ";
+}
+*/
+.nav-user-img
+{
+	display:flex;
+	gap:8px;
+}
+.nav-img
+{
+	width:40px;
+	height:40px;
+	border-radius:50px;
+	object-fit:contain;
+}
+
+
+
+/* Responsive Styles */
+
+@media (max-width: 768px) {
+    .container {
+        margin: 20px auto;
+        padding: 10px;
+    }
+    .nav-bar {
+        padding: 5px;
+    }
+    .nav-link {
+        margin: 0 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        margin: 10px auto;
+        padding: 5px;
+    }
+    .nav-bar {
+        padding: 2px;
+    }
+    .nav-link {
+        margin: 0 5px;
+    }
+}
+
+
+
+/* Mid Section */
+
+.mid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.container {
+  background: #FFFFFF;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px 6px #090b6f85;
+}
+
+/* Form Styles */
+
+label {
+  color: #B0B3B9;
+  margin-bottom: 10px;
+}
+
+textarea, input[type="file"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: none;
+  outline: none;
+  border-bottom: 2px solid #B0B3B9;
+}
+
+input[type="submit"] {
+  background-image: linear-gradient(135deg, #70F570 10%, #49C628 100%);
+  color: #fff;
+  font-size: 16px;
+  padding: 12px 12px;
+  border-radius: 50px;
+  display: inline-block;
+  border: 0;
+  outline: 0;
+  box-shadow: 0px 4px 22px 0px #49c628a6;
+  cursor: pointer;
+
+}
+
+input[type="submit"]:hover {
+  opacity: 0.7;
+}
+.p-btn
+{
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+
+
+
+
+
+
+/* Default styles for large screens */
+.containerr {
+    width: 96%;
+    margin: 0 auto;
+}
+
+.nav-bar {
+    padding: 0.5em;
+}
+
+.nav-user-img {
+    display: flex;
+    align-items: center;
+}
+
+.nav-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.nav-link {
+    margin-left: 20px;
+}
+
+.mid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}
+
+.container {
+    width: 50%;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.upload-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.image-upload, .video-upload {
+    width: 45%;
+    background-color: #f9f9f9;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.image-upload i, .video-upload i {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+/* Styles for medium screens (tablets) */
+@media (max-width: 768px) {
+    .containerr {
+        width: 90%;
+    }
+    .nav-bar {
+        padding: 0.5em;
+    }
+    .nav-user-img {
+        display: block;
+    }
+    .nav-img {
+        width: 40px;
+        height: 40px;
+    }
+    .nav-link {
+        margin-left: 10px;
+    }
+    .mid {
+        height: 70vh;
+    }
+    .container {
+        width: 70%;
+    }
+    .upload-container {
+        flex-direction: column;
+    }
+    .image-upload, .video-upload {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+}
+
+/* Styles for small screens (smartphones) */
+@media (max-width: 480px) {
+    .containerr {
+        width: 100%;
+    }
+    .nav-bar {
+        padding: 0.2em;
+    }
+    .nav-user-img {
+        display: block;
+    }
+    .nav-img {
+        width: 30px;
+        height: 30px;
+    }
+    .nav-link {
+        margin-left: 5px;
+    }
+    .mid {
+        height: 60vh;
+    }
+    .container {
+        width: 90%;
+    }
+    .upload-container {
+        flex-direction: column;
+    }
+    .image-upload, .video-upload {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+}
+
+
+
+
+/*na hamburger menu*/
+
+
+#menuToggle {
+    position: relative; /* Ensure it’s positioned relative to its container */
+    z-index: 10; /* Higher z-index to stay above other elements */
+}
+
+#menu {
+    position: absolute; /* Position it absolutely */
+    right:3px;
+    width: 250px; /* Set the width */
+    padding: 20px; /* Add padding for better spacing */
+    background: #ededed; /* Distinct background color */
+    list-style-type: none; /* Remove default list styling */
+    transform: translateX(-100%); /* Initially hide it off-screen */
+    transition: transform 0.5s ease; /* Smooth transition */
+    display: none; /* Hide by default */
+}
+
+#menuToggle input:checked ~ #menu {
+    display: block; /* Show menu when checked */
+    transform: translateX(0); /* Slide in */
+}
+
+#menu li {
+    padding: 10px 0; /* Add padding for list items */
+    font-size: 22px; /* Adjust font size */
+}
+
+#menuToggle input {
+    display: block; /* Keep it block for better click area */
+    width: 20px; /* Width of the checkbox */
+    height: 22px; /* Height of the checkbox */
+    position: absolute; /* Position it absolutely */
+    top: -7px; /* Adjust as needed */
+    left: -5px; /* Adjust as needed */
+    opacity: 0; /* Keep it invisible */
+    z-index: 2; /* Ensure it’s clickable */
+}
+
+#menuToggle span {
+    display: block; /* Ensure spans are block elements */
+    width: 23px; /* Width of the hamburger bars */
+    height: 4px; /* Height of the hamburger bars */
+    margin-bottom: 5px; /* Spacing between bars */
+    background: #cdcdcd; /* Color of the bars */
+    border-radius: 3px; /* Rounded corners */
+    transition: background 0.5s ease; /* Smooth transition for color */
+}
+
+#menuToggle input:checked ~ span {
+    background: #232323; /* Change color when checked */
+}

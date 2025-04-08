@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>SignUp Page </title>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+
+
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+
+		 <link rel="stylesheet" type="text/css" th:href="@{/signUp.css}"> 
+	</head>
+	<body>
+        <div class="box-form">
+            <div class="left">
+                <div class="overlay">
+                    <h1 class="text">KodBook.</h1>
+                    <p class="trnsfm">This is a Social MEdia Platform  
+                    </p>
+                     <p>Sign Up with social media</p>
+                    <span>
+                       
+                        <a href="#" class="f"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                        <a href="#" class="t"><i class="fa fa-twitter" aria-hidden="true"></i> </a>
+                        <a href="#" class="fa fa-google" id="ggl"></a>
+                    </span>
+                    
+                    <p th:if="${msg != null}" th:text="${msg}" id="msg" class="err"></p>
+                </div>
+                
+            </div>
+
+            <div class="right">
+
+                <h3>Create Your New Account</h3>
+                <form action="/signUp" method="post">
+
+                    <div class="inputs">
+                        
+                        <input type="text" name="username" placeholder="USERNAME "> 
+                        
+                        
+                        <input type="email" name="email" placeholder="EMAIL"> 
+                      
+                        <input type="password" name="password" placeholder="PASSWORD"> 
+                    </div>
+
+                    <label for="dob">DOB : </label>
+			        <input type="date" name="dob">
+            
+                    <div class="remember-me--forget-password">
+                     
+                            <label>GENDER : </label>
+                        <label for="gender">M</label><input type="radio" name="gender" value="M">
+                        <label for="gender">F</label><input type="radio" name="gender" value="F">
+                        <label for="gendeer">O</label><input type="radio" name="gender" value="O">
+                    </div>
+
+                    <input type="submit" value="SIGN-UP" class="btn">  <hr>
+                    
+                    <a href="/" class="anc">Already Have an Account? Login</a>
+					
+                </form>
+  
+            </div>
+            
+           </div>
+           
+	</body>
+</html>

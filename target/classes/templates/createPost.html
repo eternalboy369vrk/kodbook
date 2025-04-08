@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>Post</title>
+		  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+		  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+		<link rel="stylesheet" type="text/css" th:href="@{/createPost.css}">
+	</head>
+	<body>
+		<div class="containerr">
+        <nav class="nav-bar">
+        
+           <div class="nav-user-img">
+				 	<img th:if="${session.photoBase64}" 
+     th:src="'data:image/jpeg;base64,' + ${session.photoBase64}" 
+     alt="User Photo"  class="nav-img"  />
+			         	<p  th:text="${session.username}" id="session" class="p"></p>
+				 </div>
+       
+            <a href="/goHome" class="nav-link">NewsFeed</a>
+            
+            <a href="/openCreatePost" class="nav-link">Create Post</a>
+            <a href="/openMyProfile" class="nav-link">My Profile</a>
+            
+             <div id="menuToggle">
+                <input type="checkbox" />
+      
+      
+      <span></span>
+      <span></span>
+      <span></span>
+      
+      
+      <ul id="menu">
+        <li><a href="/logout" >Logout</a></li>
+        <li><a href="/deleteAccount" id="dlt-act">Delete Account</a></li>
+        <li><a href="#">Switch Account</a></li>
+        <li><a href="#">Settings</a></li>
+        
+      </ul>
+             </div>
+        </nav>
+    </div>
+    
+ <div class="mid">
+    <div class="container">
+        <form id="profileForm" action="/createPost" method="post" enctype="multipart/form-data">
+            <label for="caption">Caption:</label>
+            <textarea name="caption" id="" placeholder="Enter Your Caption Here"></textarea>
+            <div class="upload-container">
+                <div class="image-upload">
+                    <i class="fas fa-image"></i>
+                    <input type="file" name="photo" accept="image/*">
+                </div>
+                <div class="video-upload">
+                    <i class="fas fa-video"></i>
+                    <input type="file" name="video" accept="video/*">
+                </div>
+            </div>
+            <input type="submit" value="Post">
+        </form>
+    </div>
+</div>
+    
+    
+    
+    
+    
+    
+  <!--   <div class="mid">
+		<div class="container">
+		        <form id="profileForm" action="/createPost" method="post" enctype="multipart/form-data">
+		            <label for="caption">Caption:</label>
+		            <textarea name="caption" id="" placeholder="Enter Your Caption Here"></textarea>
+		            <label for="photo">Photo</label>
+		            <input type="file" name="photo" accept="image/*">
+		            <input type="submit" value="Post">
+		        </form>
+   		</div>
+   	</div> -->
+   	
+   	<script th:src="@{/js/createPost.js}"></script>
+	</body>
+</html>

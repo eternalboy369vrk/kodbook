@@ -1,0 +1,533 @@
+@charset "UTF-8";
+/* Global Styles */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+body {
+  background-image: linear-gradient(135deg, #FAB2FF 10%, #1904E5 100%);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  font-family: "Open Sans", sans-serif;
+  color: #333333;
+  padding: 10px;
+}
+
+/* Navigation Bar */
+
+.nav-bar {
+  background: black;
+  padding: 9px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 8px solid  #FFFFFF;
+  border-radius: 12px;
+}
+ .img{
+	width:60px;
+	height:60px;
+	border-radius:50px;
+	object-fit: cover;
+}
+
+.nav-link {
+  color: #ffffff;
+  text-decoration: none;
+  margin-right: 20px;
+}
+
+.nav-link:hover {
+  color: rgb(61, 236, 61);
+}
+
+
+/*for users profile*/
+
+.nav-user-img .p{
+	color:white;
+	margin-top:10px;
+}
+.nav-user-img .p::before
+{
+	content:"Welcome ";
+}
+.nav-user-img
+{
+	display:flex;
+	gap:8px;
+}
+.nav-img
+{
+	width:40px;
+	height:40px;
+	border-radius:50px;
+	object-fit:contain;
+}
+
+
+
+.img-wrapper {
+    position: relative; /* make the wrapper relative */
+}
+
+.plus-symbol {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    font-size: 18px;
+    font-weight: bold; 
+    color: white; 
+    cursor:pointer;
+}
+
+/* Responsive Styles */
+
+@media (max-width: 768px) {
+    .container {
+        margin: 20px auto;
+        padding: 10px;
+    }
+    .nav-bar {
+        padding: 5px;
+    }
+    .nav-link {
+        margin: 0 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        margin: 10px auto;
+        padding: 5px;
+    }
+    .nav-bar {
+        padding: 2px;
+    }
+    .nav-link {
+        margin: 0 5px;
+    }
+}
+
+
+
+
+
+/* Card Layout */
+
+.bdy
+{
+  margin-left:30px;
+}
+
+.cont-disp
+{
+	display:flex;
+	
+	 flex-wrap: wrap; 
+  justify-content: center;
+}
+
+.cont-disp >.containerr {
+ padding:10px;
+ 
+   
+ 
+}
+
+.container-photoo {
+	
+  background-color: #fff;
+  border: 1px solid #ddd;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.container-photoo img {
+  width: 100%;
+  height: 290px; 
+  object-fit: cover;
+  border-radius: 10px 10px 0 0;
+  margin-bottom: 20px;
+
+
+}
+.card {
+
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+
+  padding: 10px;
+
+  border-radius: 10px;
+
+  border: 1px solid #ddd;
+
+  width: 300px;
+  height: 200px;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+   
+  }
+}
+
+.card:hover
+{
+	box-shadow: -2px 0px 22px 3px rgba(0,0,0,0.75);
+	transform: translatex(-5px);
+  transition: 0.3s;
+}
+
+.container-photoo:hover {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  transform: translateY(-5px);
+  transition: 0.3s;
+}
+
+
+
+
+.frm-like
+{
+  display: flex;
+  /* justify-content: left; */
+  align-items: center;
+  
+}
+.frm-like> input[type="submit"]
+{
+  height: 40px;
+  padding: 10px;
+  background-color:#ffffff;
+  border: none;
+  padding: 10px;
+  font-size: 24px;
+  cursor: pointer;
+  margin-left: 15px;
+  margin-bottom: 10px;
+  color:#2ed142;
+}
+
+/*for changing the color for like button*/
+.heart-button {
+    font-size: 20px;
+    cursor: pointer;
+    background: yellow;
+    border: 1px solid black;
+   /* color: #FFFFFF; */
+  }
+  .heart-button.liked {
+  color: #FF0000; 
+}
+
+
+.form-btn
+{
+  display: flex;
+  align-items: center;
+}
+.form-btn textarea, .form-btn input[type="submit"] {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.form-btn textarea {
+  width: 80%; 
+  height: 28px;
+  padding-top:6px;
+  padding-left:4px;
+  padding: 14px auto;
+  color:red;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+}
+
+.form-btn input[type="submit"] {
+  height: 35px;
+  padding: 10px;
+  
+  border-radius: 50px;
+  border: none;
+  background-color: #4CAF50;
+  color: #fff;
+  cursor: pointer;
+}
+.form-btn input[type="submit"]:hover {
+  background-color: #3e8e41;
+}
+.form-btn >.arr
+{
+  font-family: 'Material Icons';
+  font-size: 24px; 
+
+  
+}
+
+.form-btn > input[type="submit"]
+{
+  height: 40px;
+  padding: 8px;
+  padding-bottom: 15px;
+  margin: 5px;
+}
+.comments-sectionn {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #f7f7f7;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+ 
+}
+.comments-list {
+ overflow-y: auto;
+  max-height: 80px;
+  padding-bottom: 20px;
+  box-sizing: border-box; 
+
+}
+
+.comments-list::-webkit-scrollbar {
+  width: 10px; 
+  height: 10px; 
+  background-color: #f7f7f7; 
+}
+.comments-list::-webkit-scrollbar-thumb {
+  background-color: #4CAF50; 
+  border-radius: 10px; 
+  border: 1px solid #ddd; 
+}
+
+/*for comments prfl-username display*/
+.user-cmnt
+{
+	display:grid;
+	gap:8px;
+}
+.cmnt-pic-list
+{
+	display:flex;
+}
+
+.cmnt-pic-list .image{
+    width: 45px ;
+    height: 45px;
+    border-radius: 50px;
+    object-fit: contain;
+}
+
+
+.cmnts
+{
+	margin-left:35px;
+}
+.comments-sectionn h4 {
+  margin-top: 0;
+}
+
+.comments-sectionn ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.comments-sectionn li {
+  margin-bottom: 10px;
+  
+}
+
+.comments-sectionn span {
+  font-size: 14px;
+  color: #666;
+}
+
+/* Media Query for smaller screen sizes */
+
+@media (max-width: 1200px) {
+  .containerr {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .containerr {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .containerr {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+
+/* for changing the profile pic size in posts */
+.profile-pic
+{
+    display:flex;
+}
+.user
+{
+	margin:5px;
+	margin-top:10px;
+	font-weight:bold;
+}
+/*for user name in the post*/
+.user::before{
+	content:"@";
+}
+.user:hover
+{
+	transform: translatex(5px);
+  transition: 0.3s;
+}
+.profile-pic .image{
+    width: 45px ;
+    height: 45px;
+    border-radius: 50px;
+    object-fit: contain;
+}
+.profile-pic .image:hover
+{
+	box-shadow: -2px 0px 12px 3px rgba(0,0,0,0.75);
+	transform: translatex(-5px);
+  transition: 0.3s;
+}
+
+
+
+
+
+
+/*for diaplying image in bigger size*/
+
+.modal {
+    display: none; 
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.9);
+  }
+  
+  .modal-img {
+    margin: 0 auto;
+    display: block;
+    width: 80%;
+    max-width: 600px;
+    height: 500px;
+  }
+  
+  .close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+  } 
+  
+  
+  
+  
+  /*for commenters profile and username*/
+  
+  
+  .cmnt-prfl
+  {
+  	display:flex;
+  	gap:10px;
+  }
+  .comnt
+  {
+  	position:relative;
+  	top:-22px;
+  	margin-left:39px;
+  }
+  .timee{
+  font-size:12px;
+  }
+  .comments-list img
+  {
+  	width:30px;
+  	height:30px;
+  	border-radius:50px;
+  	
+  }
+  
+  
+  
+  /*nav hamburger menu*/
+  
+
+#menuToggle {
+    position: relative; /* Ensure it’s positioned relative to its container */
+    z-index: 10; /* Higher z-index to stay above other elements */
+}
+
+#menu {
+    position: absolute; /* Position it absolutely */
+    right:3px;
+    width: 250px; /* Set the width */
+    padding: 20px; /* Add padding for better spacing */
+    background: #ededed; /* Distinct background color */
+    list-style-type: none; /* Remove default list styling */
+    transform: translateX(-100%); /* Initially hide it off-screen */
+    transition: transform 0.5s ease; /* Smooth transition */
+    display: none; /* Hide by default */
+}
+
+#menuToggle input:checked ~ #menu {
+    display: block; /* Show menu when checked */
+    transform: translateX(0); /* Slide in */
+}
+
+#menu li {
+    padding: 10px 0; /* Add padding for list items */
+    font-size: 22px; /* Adjust font size */
+}
+
+#menuToggle input {
+    display: block; /* Keep it block for better click area */
+    width: 20px; /* Width of the checkbox */
+    height: 22px; /* Height of the checkbox */
+    position: absolute; /* Position it absolutely */
+    top: -7px; /* Adjust as needed */
+    left: -5px; /* Adjust as needed */
+    opacity: 0; /* Keep it invisible */
+    z-index: 2; /* Ensure it’s clickable */
+}
+
+#menuToggle span {
+    display: block; /* Ensure spans are block elements */
+    width: 23px; /* Width of the hamburger bars */
+    height: 4px; /* Height of the hamburger bars */
+    margin-bottom: 5px; /* Spacing between bars */
+    background: #cdcdcd; /* Color of the bars */
+    border-radius: 3px; /* Rounded corners */
+    transition: background 0.5s ease; /* Smooth transition for color */
+}
+
+#menuToggle input:checked ~ span {
+    background: #232323; /* Change color when checked */
+}

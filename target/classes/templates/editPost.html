@@ -1,0 +1,27 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Post</title><link rel="stylesheet" type="text/css" th:href="@{/editPost.css}"> 
+</head>
+<body>
+    <h3>Edit Your Post</h3>
+    <form id="profileForm" action="/editPost" method="post" enctype="multipart/form-data">
+     <input type="hidden" name="postId" value="${post.id}"/>
+            <label for="caption">Caption:</label>
+            <textarea name="caption" id="" placeholder="Enter Your Caption Here"></textarea>
+            <div class="upload-container">
+                <div class="image-upload">
+                    <i class="fas fa-image"></i>
+                    <input type="file" name="photo" accept="image/*">
+                </div>
+                <div class="video-upload">
+                    <i class="fas fa-video"></i>
+                    <input type="file" name="video" accept="video/*">
+                </div>
+            </div>
+            <input type="submit" value="Post">
+        </form>
+</body>
+</html>

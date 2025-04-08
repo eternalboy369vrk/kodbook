@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" th:href="@{/notication.css}"> 
+		
+</head>
+<body>
+	 <div class="container">
+				 
+			        <nav class="nav-bar"> 
+			                  <div class="nav-user-img">
+				 	 <div class="img-wrapper">
+				 	 
+				 	 	 <img th:if="${session.photoBase64}" 
+             th:src="'data:image/jpeg;base64,' + ${session.photoBase64}" 
+             alt="User Photo"  class="nav-img"  />
+				 	
+        <span class="plus-symbol">+</span> 
+    </div>
+			         	<p  th:text="${session.username}" id="session" class="p"></p>
+				 </div>
+				
+			            <a href="/goHome" class="nav-link" ><i class="fa fa-home" style="font-size:24px"></i>NewsFeed</a>
+			            
+			            <a href="/openCreatePost" class="nav-link">Create Post</a>
+			            <a href="/openMyProfile" class="nav-link">My Profile</a>
+			            
+			            <a href="/openNotification" class="nav-link">
+			            <i class="fa fa-bell" style="font-size:24px"></i>Notifications</a>
+			            
+			           	<a href="/logout" class="nav-link">Logout</a>
+			        </nav>
+		       </div>
+	
+
+	 <div th:if="${notifications != null}">
+    <h2>Notifications</h2>
+    <ul>
+        <li th:each="notification : ${notifications}">
+            <p th:text="${notification.message}">Notification message</p>
+            <p th:text="${notification.date}">Notification date</p>
+        </li>
+    </ul>
+</div>
+</body>
+</html>

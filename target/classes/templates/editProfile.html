@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+	<meta charset="UTF-8">
+	<title>Edit Profile</title>
+	<link rel="stylesheet" type="text/css" th:href="@{/editProfile.css}"> 
+	</head>
+	<body>
+	
+		<div class="container">
+	        <nav class="nav-bar">
+				<div class="nav-user-img">
+				 	<img th:if="${session.photoBase64}" 
+     th:src="'data:image/jpeg;base64,' + ${session.photoBase64}" 
+     alt="User Photo"  class="nav-img"  />
+			         	<p  th:text="${session.username}" id="session" class="p"></p>
+				 </div>	         
+
+
+	            <a href="/goHome" class="nav-link">NewsFeed</a>
+	            
+	            <a href="/openCreatePost" class="nav-link">Create Post</a>
+	            <a href="/openMyProfile" class="nav-link">My Profile</a>
+	            
+	              <div id="menuToggle">
+                <input type="checkbox" />
+      
+      
+      <span></span>
+      <span></span>
+      <span></span>
+      
+      
+      <ul id="menu">
+        <li><a href="/logout" >Logout</a></li>
+        <li><a href="/deleteAccount" id="dlt-act">Delete Account</a></li>
+        <li><a href="#">Switch Account</a></li>
+        <li><a href="#">Settings</a></li>
+        
+      </ul>
+             </div>
+	        </nav>
+    	</div>
+	
+		 <div class="containerr">
+            <div class="card">
+                <h3 class="trnsfm">Update Your Profile</h3>
+                <form action="/updateProfile" method="post" enctype="multipart/form-data">
+                    <div class="gender">
+                        <label>Gender</label>
+                    <label>M</label><input type="radio" name="gender" value="m">
+                    <label>F</label><input type="radio" name="gender" value="f">
+                    <label>O</label><input type="radio" name="gender" value="o">
+                    </div>
+                    <div class="inputs">
+                        <label>Date oF birth</label>
+                        <input type="date" name="dob" > 
+                        <label>City</label>
+                        <input type="text" name="city" placeholder="Enter Your City"> 
+                      <label for="bio">Bio</label>
+                        <input type="text" name="bio" placeholder="Enter Your Bio"> 
+                        <label for="college">College</label>
+                        <input type="text" name="college" placeholder="Enter Your College">
+                        <label for="linkedIn">LinkedIn</label>
+                        <input type="text" name="linkedIn" placeholder="Enter Your LinkedIn">
+                        <label>GitHub</label>
+                        <input type="text" name="gitHub" placeholder="Enter Your gitHub">
+                        <input type="file" name="profilePic" accept="image/*, image/jpeg, 
+                        image/png, image/gif, image/bmp, image/tiff, image/svg+xml, 
+                        image/webp, image/x-icon">
+
+                  
+                    </div>
+
+                       <div class="btn">
+                        <input  type="submit" value="Update Profile">
+                    
+                       </div>                     
+                    
+				</form>
+            </div>
+                
+                    
+            </div>
+	</body>
+</html>
