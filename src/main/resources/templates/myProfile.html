@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+	<head>
+	    <meta charset="UTF-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <title>My Profile</title>
+	    <link rel="stylesheet" type="text/css" th:href="@{/myProfile.css}"> 
+	    
+	</head>
+	<body>
+ <div class="container">
+        <nav class="nav-bar">
+        
+           <div class="nav-user-img">
+             <a href="/goHome" class="nav-link">	 <img th:if="${session.photoBase64}" 
+ th:src="'data:image/jpeg;base64,' + ${session.photoBase64}" 
+ alt="User Photo"  class="nav-img"  /> </a>
+                     <p  th:text="${session.username}" id="session" class="p"></p>
+             </div>
+            <a href="/goHome" class="nav-link">NewsFeed</a>
+            
+            <a href="/openCreatePost" class="nav-link">Create Post</a>
+            <a href="/openMyProfile" class="nav-link">My Profile</a>
+            
+             
+
+             <div id="menuToggle">
+                <input type="checkbox" />
+      
+      
+      <span></span>
+      <span></span>
+      <span></span>
+      
+      
+      <ul id="menuu">
+        <li><a href="/logout" >Logout</a></li>
+        <li><a href="/deleteAccount" id="dlt-act">Delete Account</a></li>
+        <li><a href="#">Switch Account</a></li>
+        <li><a href="#">Settings</a></li>
+        
+      </ul>
+             </div>
+        </nav>
+    </div>
+    	<div class="edit"> <h1>Profile Details</h1>
+    		<a href="/openCreatePost">New Post</a>
+        	<a href="/openEditProfile">Edit Profile</a>
+        	<a href="/deleteAccount" id="dlt-act">Delete Account</a>
+   		</div>
+   		
+   		<div  class="container-pfl">
+        
+	        <div class="container-photo">
+	        
+	            <p><strong>Photo:</strong></p>
+	             <img th:if="${user.photoBase64}" 
+	                 th:src="'data:image/jpeg;base64,' + ${user.photoBase64}" 
+	                 alt="Profile Photo" class="img"/>
+	                 
+	                 <p class="ubio"><strong >BIO:</strong> <span th:text="${user.bio}"></span></p>
+	   
+	        </div>
+            <div class="container-details"  >
+                
+                <div class="cont-dtls">
+                    <p><strong>Name:</strong> <span th:text="${user.username}"></span></p>
+                    <p><strong>Email:</strong> <span th:text="${user.email}"></span></p>
+                    <p><strong>Date of Birth:</strong> <span th:text="${user.dob}"></span></p>
+                    <p><strong>Gender:</strong> <span th:text="${user.gender}"></span></p>
+                    <p><strong>City:</strong> <span th:text="${user.city}"></span></p>
+
+                </div>
+                <div class="cont-extdtls">
+
+                    
+                     <p><strong>College:</strong> <span th:text="${user.college}"></span></p>
+                  
+                     <p><strong>LinkedIn:</strong> <span th:text="${user.linkedIn}"></span></p>
+                     <p><strong>GitHub :</strong> <span th:text="${user.gitHub}"></span></p>
+                  
+                   
+                </div>
+            </div>
+
+                
+                
+               
+            
+    </div>
+   		
+   		<h2 class="h2"> Posts</h2>
+ <!--  		 <div class="posts-section">
+                
+                <div th:each="post : ${posts}" class="post">
+                <div class="cntr-pto">
+                <p><strong>Photo:</strong></p>
+                    <img th:if="${post.photoBase64 != null and post.photoBase64 != ''}" 
+                    th:src=" 'data:image/jpeg;base64,' + ${post.photoBase64}" 
+                    alt="Post Photo" class="card" >
+                    <p th:if="${post.photoBase64 == null or post.photoBase64 == ''}">No Photo Available</p>
+                    <p><strong>Caption:</strong> <span th:text="${post.caption}"></span></p>
+                    
+                     
+                    </div>
+                  
+                </div>
+            </div>
+   		-->  
+<div class="posts-section">
+                
+        <div th:each="post : ${posts}" class="post"  >
+
+      
+           
+        <div class="cntr-pto" >
+        <div class="ham-img">
+					<img th:if="${post.user.photoBase64}" 
+		                 th:src="'data:image/jpeg;base64,' + ${post.user.photoBase64}" 
+		                    alt="User Photo"  class="image"  />
+                  <div id="menuToggle">
+                  
+      
+      <input type="checkbox" />
+      
+      
+      <span></span>
+      <span></span>
+      <span></span>
+      
+      
+      <ul id="menu">
+        <li><a href="openEditPost">Edit Post</a></li>
+        <li><a href="#">Delete Post </a></li>
+        
+      </ul>
+    </div>
+
+	</div>
+
+ 
+
+
+
+
+
+       <div th:if="${post.photoBase64 != null and post.photoBase64 != ''}">
+     
+        <img th:src=" 'data:image/jpeg;base64,' + ${post.photoBase64}" 
+             alt="Profile Photo" class="card">
+             <p><strong>Caption:</strong> <span th:text="${post.caption}"></span></p>
+    </div>
+    <div th:if="${post.videoBase64 != null and post.videoBase64 != ''}" >
+        
+        <video controls class="card">
+            <source th:src=" 'data:video/mp4;base64,' + ${post.videoBase64}" 
+                    type="video/mp4" >
+        </video>
+        <p><strong>Caption:</strong> <span th:text="${post.caption}"></span></p>
+    </div>
+		
+    <!-- Display "No Photo Available" or "No Video Available" only if both are null -->
+    <div th:if="${post.photoBase64 == null or post.photoBase64 == ''} and ${post.videoBase64 == null or post.videoBase64 == ''}">
+        <p>No media available</p>
+    </div>		
+             
+            </div>
+          
+        </div>
+    </div>
+   		
+   		
+	</body>
+</html>

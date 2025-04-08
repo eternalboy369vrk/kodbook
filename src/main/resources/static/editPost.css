@@ -1,0 +1,269 @@
+@charset "UTF-8";
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Times New Roman', Times, serif;
+}
+body {
+    background-image: linear-gradient(135deg, #FAB2FF 10%, #1904E5 100%);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-family: "Open Sans", sans-serif;
+    color: #333333;
+    padding: 10px;
+  }
+  .container {
+
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 50px;
+  }
+
+
+  .nav-bar {
+    background: black;
+    padding: 9px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 8px solid  #FFFFFF;
+    border-radius: 12px;
+    border-radius: 22px;
+  }
+  .nav-bar .p{
+	color:white;
+}
+
+  .nav-link {
+    color: #ffffff;
+    text-decoration: none;
+    margin-right: 20px;
+  }
+  
+  .nav-link:hover {
+    color: rgb(61, 236, 61);
+  }
+ 
+ 
+  /*for users profile*/
+
+.nav-user-img .p{
+	color:white;
+	margin-top:10px;
+}
+.nav-user-img .p::before
+{
+	content:"Welcome ";
+}
+.nav-user-img
+{
+	display:flex;
+	gap:8px;
+}
+.nav-img
+{
+	width:40px;
+	height:40px;
+	border-radius:50px;
+	object-fit:contain;
+}
+ 
+  
+  /* Responsive Styles */
+  
+  @media (max-width: 768px) {
+      .container {
+          margin: 20px auto;
+          padding: 10px;
+      }
+      .nav-bar {
+          padding: 5px;
+      }
+      .nav-link {
+          margin: 0 10px;
+      }
+  }
+  
+  @media (max-width: 480px) {
+      .container {
+          margin: 10px auto;
+          padding: 5px;
+      }
+      .nav-bar {
+          padding: 2px;
+      }
+      .nav-link {
+          margin: 0 5px;
+      }
+  }
+
+
+
+
+  
+  .containerr {
+    background-image: linear-gradient(135deg, #FAB2FF 10%, #1904E5 100%);
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .containerr h3
+{
+    text-align: center;
+}
+  
+  .card {
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 520px;
+  }
+  .card:hover
+  {
+    box-shadow: 9px 8px 20px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
+    transition: 0.3s;
+  }
+  
+  .trnsfm {
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  
+  
+  .inputs  {
+    display: grid;
+    grid-template-columns: repeat(2,180px);
+    justify-content: center;
+}
+
+  .inputs input[type="text"], .inputs input[type="date"] {
+    width: 200px;
+    height: 30px;
+    padding: 10px;
+    margin-bottom: 20px;
+    /* border: 1px solid #ccc; */
+    font-size: 16px;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid #B0B3B9;
+
+  }
+  
+  .inputs input[type="file"] {
+    margin-bottom: 20px;
+  }
+  
+  input[type="submit"] {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  input[type="submit"]:hover {
+    background-color: #444;
+  }
+
+  /* extra transforms */
+  .trnsfm {
+    position: relative;
+    left: 100%; 
+    animation: moveFromRight 2s forwards; 
+    animation-delay: 1s; 
+  }
+  
+  @keyframes moveFromRight {
+    to {
+      left: 0; 
+    }
+  }
+
+
+.btn
+{
+    display: flex;
+    justify-content: center;
+}
+
+  .card input[type="submit"] {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .card  input[type="submit"]:hover {
+    background-color: #444;
+  }
+
+
+
+
+/*na hamburger menu*/
+
+
+#menuToggle {
+    position: relative; /* Ensure it’s positioned relative to its container */
+    z-index: 10; /* Higher z-index to stay above other elements */
+}
+
+#menu {
+    position: absolute; /* Position it absolutely */
+    right:3px;
+    width: 250px; /* Set the width */
+    padding: 20px; /* Add padding for better spacing */
+    background: #ededed; /* Distinct background color */
+    list-style-type: none; /* Remove default list styling */
+    transform: translateX(-100%); /* Initially hide it off-screen */
+    transition: transform 0.5s ease; /* Smooth transition */
+    display: none; /* Hide by default */
+}
+
+#menuToggle input:checked ~ #menu {
+    display: block; /* Show menu when checked */
+    transform: translateX(0); /* Slide in */
+}
+
+#menu li {
+    padding: 10px 0; /* Add padding for list items */
+    font-size: 22px; /* Adjust font size */
+}
+
+#menuToggle input {
+    display: block; /* Keep it block for better click area */
+    width: 20px; /* Width of the checkbox */
+    height: 22px; /* Height of the checkbox */
+    position: absolute; /* Position it absolutely */
+    top: -7px; /* Adjust as needed */
+    left: -5px; /* Adjust as needed */
+    opacity: 0; /* Keep it invisible */
+    z-index: 2; /* Ensure it’s clickable */
+}
+
+#menuToggle span {
+    display: block; /* Ensure spans are block elements */
+    width: 23px; /* Width of the hamburger bars */
+    height: 4px; /* Height of the hamburger bars */
+    margin-bottom: 5px; /* Spacing between bars */
+    background: #cdcdcd; /* Color of the bars */
+    border-radius: 3px; /* Rounded corners */
+    transition: background 0.5s ease; /* Smooth transition for color */
+}
+
+#menuToggle input:checked ~ span {
+    background: #232323; /* Change color when checked */
+}
+
+  

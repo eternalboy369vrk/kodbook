@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>Home Page</title>
+ 		<link rel="stylesheet" type="text/css" th:href="@{/home.css}"> 
+		
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	</head>
+	<body class="bdy">
+
+				 <div class="container">
+				 
+			        <nav class="nav-bar"> 
+			                  <div class="nav-user-img">
+				 	 <div class="img-wrapper">
+				 	 
+				 	 	 <img th:if="${session.photoBase64}" 
+             th:src="'data:image/jpeg;base64,' + ${session.photoBase64}" 
+             alt="User Photo"  class="nav-img"  />
+				 	
+        <span class="plus-symbol">+</span> 
+    </div>
+			         	<p  th:text="${session.username}" id="session" class="p"></p>
+				 </div>
+				
+			            <a href="/goHome" class="nav-link" ><i class="fa fa-home" style="font-size:24px"></i>NewsFeed</a>
+			            
+			            <a href="/openCreatePost" class="nav-link">Create Post</a>
+			            <a href="/openMyProfile" class="nav-link">My Profile</a>
+			            
+			            <a href="/openNotification" class="nav-link">
+			            <i class="fa fa-bell" style="font-size:24px"></i>Notifications</a>
+			            
+			       <div id="menuToggle">
+                <input type="checkbox" />
+      
+      
+      <span></span>
+      <span></span>
+      <span></span>
+      
+      
+      <ul id="menu">
+        <li><a href="/logout" >Logout</a></li>
+        <li><a href="/deleteAccount" id="dlt-act">Delete Account</a></li>
+        <li><a href="#">Switch Account</a></li>
+        <li><a href="#">Settings</a></li>
+        
+      </ul>
+             </div>
+</nav>
+		       </div>
+		       <div th:if="${message != null}" th:text="${message}"></div>
+		       
+		       
+    	<div th:if="${message}" th:text="${message}" style="color: green;"></div>
+    <div th:if="${error}" th:text="${error}" style="color: red;"></div>
+		       
+		       
+                <div>
+                 <div class="cont-disp">
+                  <div th:each="post : ${allPosts}" class="containerr">
+                   <div class="container-photoo">
+                    <div class="profile-pic">
+                     <a th:href="@{/openMyProfilee(username=${post.user.username})}" class="nav-link">
+                      	<img th:if="${post.user.photoBase64}" 
+		                 th:src="'data:image/jpeg;base64,' + ${post.user.photoBase64}" 
+		                    alt="User Photo"  class="image"  />
+                     </a>
+						<p th:if="${post.user != null}" class="user">
+					    <span th:text="${post.user.username}" >Unknown</span>
+						</p>
+						<p th:unless="${post.user != null}">
+					   	<span>Unknown</span>
+						</p>    
+		             </div>
+                      				    	
+                      <div th:if="${post.photoBase64 != null and post.photoBase64 != ''}">
+        <p><strong>Photo:</strong></p>
+        <img th:src=" 'data:image/jpeg;base64,' + ${post.photoBase64}" 
+             alt="Profile Photo" class="card">
+    </div>
+    <div th:if="${post.videoBase64 != null and post.videoBase64 != ''}" >
+        <p><strong>Video:</strong></p>
+        <video controls class="card">
+            <source th:src=" 'data:video/mp4;base64,' + ${post.videoBase64}" 
+                    type="video/mp4" >
+        </video>
+    </div>
+	<p><strong>caption:</strong> <span th:text="${post.caption}"></span></p>	
+    <!-- Display "No Photo Available" or "No Video Available" only if both are null -->
+    <div th:if="${post.photoBase64 == null or post.photoBase64 == ''} and ${post.videoBase64 == null or post.videoBase64 == ''}">
+        <p>No media available</p>
+    </div>			        
+                      <form action="/likePost" class="frm-like">					        	
+                          <p><strong>Likes : </strong>
+                          <span th:text="${post.likes}"></span></p>
+                          <input type="hidden"  name="id" th:value="${post.id}">
+                          <input type="submit" name="" id="heart-btn" value="&#10084;" class="heart-button">
+                      </form>
+                                
+                      <form action="/addComment" method="post" class="form-btn">
+                          <input type="hidden" name="id" th:value="${post.id}">
+                          <textarea name="comments" placeholder="Enter Your Comments Here"></textarea>
+                          <input type="submit" value="send" class="arr">
+                      </form>
+                      
+                     
+ 
+
+
+<div class="comments-section" th:if="${post.commenters != null}">
+    <h4>Comments</h4>
+    <div class="comments-list">
+        <ul>
+            <li th:each="comment : ${post.commenters}">
+            	<div class="cmnt-prfl">
+                <img th:if="${comment.getCommenterProfilePic() != null}" 
+                     th:src="'data:image/jpeg;base64,' + ${comment.getCommenterProfilePicBase64()}" 
+                     alt="Commenter's Profile Picture" >
+                     
+                <span th:text="${comment.commenterUsername}"></span>
+                
+                <span th:text="${#dates.format(comment.commentTime, ' HH:mm')}"  class="timee"></span>
+                </div>
+                <span th:text="${comment.comment}"  class="comnt"></span>
+            </li>
+        </ul>
+    </div>
+</div>
+                     
+                     
+                    </div>  
+                </div>
+            </div> 
+        </div>   
+        <div class="modal">
+            <span class="close">&times;</span>
+            <img class="modal-img" src="" alt="Enlarged Image">
+          </div>
+          
+          
+    <script th:src="@{/js/home.js}"></script>
+	</body>
+</html>

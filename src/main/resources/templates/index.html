@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>Login Page </title>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+		 <link rel="stylesheet" type="text/css" th:href="@{/styles.css}"> 
+
+
+	</head>
+	<body>
+        <div class="box-form">
+            <div class="left">
+                <div class="overlay">
+                <h1 class="text">KodBook.</h1>
+                <p class="trnsfm">This is a Social MEdia Platform  
+                </p>
+                 <p >login with social media</p>
+                <span>
+                    
+                        <a href="#" class="f"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                        <a href="#" class="t"><i class="fa fa-twitter" aria-hidden="true"></i> </a>
+                        <a href="#" class="fa fa-google" id="ggl"></a>
+                </span>
+                
+                <p th:if="${msg != null}" th:text="${msg}" id="msg"  class="err"></p>
+                </div>
+            </div>
+
+            <div class="right">
+                <form action="/login" method="post">
+                    <h5>Login</h5>
+                    
+                    <p>Don't have an account? <a href="/openSignUp" class="acnt">Create New Account</a> it takes less than a minute</p>
+                    <div class="inputs">
+                        
+                        <input type="text" name="username" placeholder="username "> 
+                        <input type="password" name="password" placeholder="password">
+                    </div>
+
+
+                    <div class="remember-me--forget-password">
+                        
+                        <label>
+                            <input type="checkbox" name="item" checked/>
+                            <span class="text-checkbox">Remember me</span>
+                        </label>
+           <a href="/openResetPassword" class="fgtpsd">Forgot Password</a> 
+          
+       
+
+                        
+                    </div>
+                    <input type="submit" value="LOGIN" class="btn">
+                 </form>
+					 
+            </div>
+           
+        </div>
+
+		
+	</body>
+</html>
